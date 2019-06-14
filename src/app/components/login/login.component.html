@@ -1,0 +1,39 @@
+<div class="container">
+  <div class="row">
+    <div class="col s10 offset-s1">
+      <!-- linear gradient bar -->
+      <div class="progress" *ngIf="showSpinner">
+        <div class="indeterminate"></div>
+      </div>
+      <!-- sign in form -->
+      <h5 id="title">SignIn</h5>
+      <div id="errorMsg" *ngIf="errorMessage">
+        <span>{{ errorMessage }}</span>
+      </div>
+      <!-- form field content-->
+      <form class="col s12" [formGroup]="loginForm" novalidate (ngSubmit)="loginUser()">
+        <div class="row">
+          <div class="input-field col s12">
+            <input id="user-name" type="text" formControlName="username" />
+            <label for="user-name">Username</label>
+            <span class="error" *ngIf="!loginForm.controls['username'].valid && loginForm.controls['username'].touched">
+              Username is required
+            </span>
+          </div>
+        </div>
+        <div class="row">
+          <div class="input-field col s12">
+            <input id="pass-word" type="password" formControlName="password" />
+            <label for="pass-word">password</label>
+            <span class="error" *ngIf="!loginForm.controls['password'].valid && loginForm.controls['password'].touched">
+              Password is required
+            </span>
+          </div>
+        </div>
+        <button class="btn waves-effect" id="signinbtn" [disabled]="!loginForm.valid">
+          Sign In
+        </button>
+      </form>
+    </div>
+  </div>
+</div>
