@@ -7,14 +7,15 @@ import io from 'socket.io-client';
 import _ from 'lodash';
 
 @Component({
-  selector: 'app-posts',
-  templateUrl: './posts.component.html',
-  styleUrls: ['./posts.component.scss']
+  selector: 'app-top-streams',
+  templateUrl: './top-streams.component.html',
+  styleUrls: ['./top-streams.component.scss']
 })
-export class PostsComponent implements OnInit {
+export class TopStreamsComponent implements OnInit {
+
   socketHost: any;
   socket: any;
-  posts = [];
+  topposts = [];
   user: any;
 
   constructor(private postService: PostService, private tokenService: TokenService, private router: Router) {
@@ -35,7 +36,7 @@ export class PostsComponent implements OnInit {
   AllPosts() {
     this.postService.getAllPosts().subscribe(
       data => {
-        this.posts = data.posts;
+        this.topposts = data.top;
       },
       err => {
         if (err.error.token === null) {
@@ -61,7 +62,6 @@ export class PostsComponent implements OnInit {
     return _.some(arr, { username: username });
   }
 
-
   TimeFromNow(time) {
     return moment(time).fromNow();
   }
@@ -70,4 +70,5 @@ export class PostsComponent implements OnInit {
   OpenCommentBox(post) {
     this.router.navigate(['post', post._id]);
   }
+
 }

@@ -1,9 +1,9 @@
-<ul class="collection" *ngFor="let post of posts">
+<ul class="collection" *ngFor="let post of posts.slice().reverse()">
   <li class="collection-item avatar">
     <img src="../../../assets/sample.jpg" alt="user image" class="circle" />
     <span class="title">{{ post.Username }}</span>
     <p class="time">
-      {{ TimeFromNow(post.createdAt) }} <br />
+      {{ TimeFromNow(post.created) }} <br />
       <!-- Country -->
     </p>
   </li>

@@ -55,11 +55,11 @@ nav {
 .nav-label-icon {
   top: -9px;
   position: relative;
-  background: red;
+  color: red;
+  font-size: 21px;
+  font-weight: bold;
   padding: 5px;
   border-radius: 50%;
-  width: 40px !important;
-  height: 40px !important;
 }
 
 .dropdown-content {
@@ -104,6 +104,8 @@ nav {
 
 .text {
   text-align: center;
+  color:#64b5f6;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
 
 .material-icons {
